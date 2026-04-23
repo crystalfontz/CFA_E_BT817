@@ -110,7 +110,7 @@ Here is an example of the macros that will exported from the code:\
 #define FLASH_SECTOR_ICE_FPV_512x300 (81UL)\
 #define FLASH_LENGTH_ICE_FPV_512x300 (12882892UL) // sectors: 3145
 
-For an in-depth guide to loading custom images on our EVE lineup of displays without an SD card (using the Seeeduino's flash memory), please refer to our blog post [available here](https://www.crystalfontz.com/blog/custom-images-on-eve-displays/).
+For an in-depth guide to loading custom images on our EVE lineup of displays without an SD card (using the Seeeduino's flash memory) please refer to our blog post [available here](https://www.crystalfontz.com/blog/custom-images-on-eve-displays/).
 
 ## Connection Details
 #### To [CFA10098 Adapter Board](https://www.crystalfontz.com/product/cfa10098) (See kits above)
@@ -125,7 +125,7 @@ For an in-depth guide to loading custom images on our EVE lineup of displays wit
 | 7  (GPIO1/D3)     | DNC          | GPIO1/D2               |
 | 8  (GND)          | GND or DNC   | Ground                 |
 | 9  (CS)           | D9           | Chip Select            |
-| 10 (INT)          | D7           | Interrupt               |
+| 10 (INT)          | D7           | Interrupt              |
 | 11 (PD)           | D8           | Chip Power Down        |
 | 12 (MODE/GPIO2)   | DNC          | MODE/GPIO2             |
 | 13 (AUDIO)        | DNC          | Audio PWM              |
@@ -144,3 +144,18 @@ For an in-depth guide to loading custom images on our EVE lineup of displays wit
 
 ## Additional Accessories
 Additional accessories for the products can be found at the bottom of each of the product pages. This will include 30 position FFC cables, wires, and any accessory boards that are available.
+
+## Original Extra Notes
+(2020-08-05 Brent A. Crosby / Crystalfontz America, Inc.)
+
+This is a simplified / refactored version of the code in [FTDI's AN_275](http://brtchip.com/wp-content/uploads/Support/Documentation/Application_Notes/ICs/EVE/AN_275_FT800_Example_with_Arduino.pdf) with support added for the BT817 series.
+
+In the spirit of AN_275:
+An “abstraction layer” concept was explicitly avoided in this example. Rather, direct use of the Arduino libraries demonstrates the simplicity of sending and receiving data through the FT800 while producing a graphic output.
+
+The main goal here is to be transparent about what is really happening from the high to lowest levels, without obfuscation, while still at least giving a nod to good programming practices.
+Plus, you probably don't have RAM and flash for all those fancy programming layers.
+
+The FTDI write offset (FWo) into the BT817's circular write write buffer is passed into and back from functions (FWol = FWo local) rather than being a global. Keeping track of the write offset avoids having to read that information from the BT817 before every SPI transaction.
+
+A nod to Rudolph R and company for deep insight and lots of help in increasing our understanding of the fiddly bits of the EVE hardware and software architecture ([Link 1](https://www.mikrocontroller.net/topic/395608) [Link 2](https://github.com/RudolphRiedel/FT800-FT813)).

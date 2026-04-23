@@ -1,24 +1,27 @@
 #ifndef __ROUND_LOGOS_H__
 #define __ROUND_LOGOS_H__
 
-#if 1==LOGO_DEMO
+//============================================================================
+// Crystalfontz America, Inc. example firmware for:
+// https://www.crystalfontz.com/products/eve-accelerated-tft-displays.php
 //===========================================================================
-#if 1==LOGO_PNG_0_ARGB2_1
+// See LICENSE.md for software licensing information.
+//===========================================================================
 
-#define LOGO_SIZE_ARGB2  (2316)
+#include <Arduino.h>
+
+//compressed logo
+#define LOGO_SIZE_ARGB2   (2316)
 #define LOGO_WIDTH_ARGB2  (320)
 #define LOGO_HEIGHT_ARGB2 (320)
+//original logo
+#define LOGO_SIZE_PNG     (6849)
+
+#if (LOGO_DEMO == 1) && (LOGO_PNG_0_ARGB2_1 == 1)
 extern const uint8_t CFA_E_ARGB2_LOGO[LOGO_SIZE_ARGB2] PROGMEM;
-
-#endif // 1==LOGO_PNG_0_ARGB2_1
-//===========================================================================
-#if 0==LOGO_PNG_0_ARGB2_1
-
-#define LOGO_SIZE_PNG  (6849)
+#endif
+#if (LOGO_DEMO == 1) && (LOGO_PNG_0_ARGB2_1 == 0)
 extern const uint8_t CFA_E_PNG_LOGO[LOGO_SIZE_PNG] PROGMEM;
+#endif
 
-#endif // 0==LOGO_PNG_0_ARGB2_1
-//===========================================================================
-#endif // 1==LOGO_DEMO
-
-#endif // __ROUND_LOGOS_H__
+#endif
