@@ -9,10 +9,10 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <stdarg.h>
+#include "CFA_E_defines.h"
 #if BUILD_SD
 #include <SD.h>
 #endif
-#include "CFA_E_defines.h"
 #include "Round_Logos.h"
 #include "EVE_base.h"
 #include "EVE_defines.h"
