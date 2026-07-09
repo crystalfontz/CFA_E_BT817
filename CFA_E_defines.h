@@ -22,13 +22,13 @@
 // #include "DISPLAY_CFA480480E0040TW.h"      // 4"    480x480  capacitive touch
 // #include "DISPLAY_CFA480272E0043SN.h"      // 4.3"  480x272  non-touch
 // #include "DISPLAY_CFA480272E0043SR.h"      // 4.3"  480x272  resistive touch
-// #include "DISPLAY_CFA480272E0043SC.h"      // 4.3"  480x272  capacitive touch
+ #include "DISPLAY_CFA480272E0043SC.h"      // 4.3"  480x272  capacitive touch
 // #include "DISPLAY_CFA800480E0043SN.h"      // 4.3"  800x480  non-touch
 // #include "DISPLAY_CFA800480E0043SR.h"      // 4.3"  800x480  resistive touch
 // #include "DISPLAY_CFA800480E0043SC.h"      // 4.3"  800x480  capacitive touch
 // #include "DISPLAY_CFA800480E3050SN.h"      // 5.0"  800x480  non-touch
 // #include "DISPLAY_CFA800480E3050SR.h"      // 5.0"  800x480  resistive touch
-#include "DISPLAY_CFA800480E3050SC.h"      // 5.0"  800x480  capacitive touch
+//#include "DISPLAY_CFA800480E3050SC.h"      // 5.0"  800x480  capacitive touch
 // #include "DISPLAY_CFA800480E3050SW.h"      // 5.0"  800x480  cap. touch, overhang glass
 // #include "DISPLAY_CFAF1024600B0070SCA1.h"  // 7.0"  1024x600 capacitive touch
 
@@ -58,14 +58,14 @@
 #define PROGRAM_FLASH_FROM_USD	(0) // 0=data is in flash, 1=copy data from microsd to flash
 
 // Demo selection (choose one or more)
-#define BMP_DEMO					(0)			// Images must already be programmed into flash by using PROGRAM_FLASH_FROM_USD
+#define BMP_DEMO					(1)			// Images must already be programmed into flash by using PROGRAM_FLASH_FROM_USD
 #define BMP_SCROLL				(0)			// 1=scrolling background (cloud.a8z), 0=static image (splash.a8z)
 #define SOUND_DEMO				(0)			// Uses uSD
 #define 	SOUND_VOICE				(0)		// 1=VOI_8K.RAW, 0=MUS_8K.RAW
 #define 	SOUND_PLAY_TIMES	(0)
-#define LOGO_DEMO 				(1) 		// Spinning logo (the PNG or ARGB image data is stored in the Seeeduino's flash)
+#define LOGO_DEMO 				(0) 		// Spinning logo (the PNG or ARGB image data is stored in the Seeeduino's flash)
 #define 	LOGO_PNG_0_ARGB2_1 (1)	// Compressed ARGB is 5408 bytes smaller
-#define BOUNCE_DEMO 			(1)			// Ball-and-rubber-band demo.
+#define BOUNCE_DEMO 			(0)			// Ball-and-rubber-band demo.
 #define MARBLE_DEMO 			(0)			// Marble must already be programmed into flash by using PROGRAM_FLASH_FROM_USD
 #define TOUCH_DEMO				(1)			// Simple touch demo
 #define VIDEO_DEMO				(0)			// Video must already be programmed into flash by using PROGRAM_FLASH_FROM_USD
@@ -86,7 +86,6 @@
 //*** WARNING: PLACEHOLDER VALUES — MUST BE UPDATED FOR YOUR HARDWARE ***
 // Build once with PROGRAM_FLASH_FROM_USD=1 and copy the values printed to
 // the serial console. The values below are stale examples and will not work.
-#if (PROGRAM_FLASH_FROM_USD == 1)
 #define FLASH_SECTOR_MARBLE (1UL)
 #define FLASH_LENGTH_MARBLE (1409867791UL) // sectors: 344206
 #define FLASH_SECTOR_SPLASH (1UL)
@@ -97,7 +96,6 @@
 #define FLASH_LENGTH_ICE_FPV_512x300 (4096UL) // sectors: 1
 // Total sectors = 4096, free sectors = 4070
 // Total flash = 16777216, free flash = 16670720
-#endif
 
 //============================================================================
 // SEEEDUINO / ARDUINO PIN CONFIGURATION
